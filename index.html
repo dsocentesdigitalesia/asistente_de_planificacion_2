@@ -74,7 +74,7 @@
     transition:transform .15s ease, box-shadow .15s ease;
   }
   .btn-primary{
-    background:var(--rojo); color:var(--tiza); border-color:var(--rojo);
+    background:var(--verde); color:var(--tiza); border-color:var(--verde);
     box-shadow:3px 3px 0 var(--tinta);
   }
   .btn-primary:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--tinta); }
@@ -140,7 +140,12 @@
   }
   .box-mock img{
     max-width:100%;
+    max-height:420px;
+    width:auto;
+    display:block;
+    margin:0 auto;
     border-radius:8px;
+    object-fit:contain;
     transform:rotate(-2deg);
   }
   .box-mock .badge-flot{
@@ -151,6 +156,18 @@
     box-shadow:0 8px 18px -6px rgba(0,0,0,.5);
     transform:rotate(4deg);
   }
+  .box-mock .sticker{
+    position:absolute; left:-16px; bottom:8%;
+    width:118px; height:118px; border-radius:50%;
+    background:var(--verde); color:#fff;
+    border:3px dashed rgba(255,255,255,.75);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    transform:rotate(-11deg);
+    box-shadow:0 14px 26px -8px rgba(0,0,0,.55);
+  }
+  .box-mock .sticker .solo{ font-family:'IBM Plex Mono'; font-size:10px; letter-spacing:.04em; text-transform:uppercase; }
+  .box-mock .sticker .cifra-sticker{ font-family:'Caveat'; font-weight:700; font-size:26px; line-height:1.05; margin-top:2px; }
 
   /* ---------- VIDEO DEMO ---------- */
   .video-demo{ background:var(--papel); padding:70px 0 84px; }
@@ -316,13 +333,13 @@
   }
   .nota-diez{
     width:190px; height:190px; border-radius:50%;
-    border:4px solid var(--rojo); color:var(--rojo);
+    border:4px solid var(--verde); color:var(--verde);
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     transform:rotate(-6deg); margin:6px auto 26px;
-    background:rgba(214,69,80,.06);
+    background:rgba(78,159,114,.08);
   }
   .nota-diez .cifra{ font-family:'Caveat'; font-weight:700; font-size:44px; line-height:1; }
-  .nota-diez .cap{ font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:.05em; margin-top:6px; color:var(--rojo); }
+  .nota-diez .cap{ font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:.05em; margin-top:6px; color:var(--verde); }
   .precio h2{ font-size:clamp(26px,3.6vw,36px); max-width:20ch; color:var(--tiza); }
   .precio .detalle{ margin-top:14px; color:var(--tiza-dim); font-size:15.5px; max-width:44ch; line-height:1.6; }
   .precio .cta-row{ margin-top:34px; }
@@ -354,7 +371,9 @@
   @media (max-width:900px){
     .hero .wrap{ grid-template-columns:1fr; }
     .box-mock{ order:-1; transform:rotate(0); padding:20px 18px 18px; max-width:280px; margin:0 auto; }
-    .box-mock img{ transform:rotate(0); max-width:100%; }
+    .box-mock img{ transform:rotate(0); max-width:100%; max-height:300px; }
+    .box-mock .sticker{ width:88px; height:88px; left:-10px; }
+    .box-mock .sticker .cifra-sticker{ font-size:19px; }
     .pasos{ grid-template-columns:1fr; }
     .notas{ grid-template-columns:1fr 1fr; }
   }
@@ -373,7 +392,7 @@
     <div class="logo"><span class="dot"></span> Docentes Digitales<span style="color:var(--rojo)">.IA</span></div>
     <nav style="display:flex; gap:10px; align-items:center;">
       <a class="btn btn-ghost" href="#precio">Ver precio</a>
-      <a class="btn btn-primary" style="padding:10px 18px; font-size:14px; box-shadow:2px 2px 0 var(--tinta);" href="https://wa.me/348315524258?text=Hola!%20Quiero%20el%20Generador%20de%20secuencias%20did%C3%A1cticas%20%F0%9F%99%8C" target="_blank" rel="noopener">Lo quiero</a>
+      <a class="btn btn-primary" style="padding:10px 18px; font-size:14px; box-shadow:2px 2px 0 var(--tinta);" href="https://wa.me/348315524258?text=Hola!%20Quiero%20el%20Generador%20de%20secuencias%20did%C3%A1cticas%20%F0%9F%99%8C" target="_blank" rel="noopener">Lo quiero · $19.999</a>
     </nav>
   </div>
 </header>
@@ -387,10 +406,10 @@
       <p class="sub">Elegís grado, área y tema — la IA te arma una secuencia completa, interdisciplinaria y alineada al Diseño Curricular. Vos ajustás lo que quieras y la llevás al aula.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://wa.me/348315524258?text=Hola!%20Quiero%20el%20Generador%20de%20secuencias%20did%C3%A1cticas%20%F0%9F%99%8C" target="_blank" rel="noopener">
-          Quiero el Generador →
+          Quiero el Generador — $19.999 →
         </a>
-        <span class="mono" style="font-size:13px;color:var(--tiza-dim)">$19.999 · pago único</span>
       </div>
+      <p class="mono" style="font-size:13px;color:var(--tiza-dim); margin-top:10px;">Pago único · no es una suscripción</p>
       <div class="trust">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="var(--verde)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Pensado por y para docentes argentinos, de nivel primario.
@@ -400,6 +419,7 @@
     <div class="box-mock reveal in">
       <img src="assets/asistente-planificacion-box.png" alt="Asistente de Planificación — Generador de Secuencias Didácticas" width="520" height="646" loading="eager" />
       <span class="badge-flot">✓ Listo en minutos</span>
+      <span class="sticker"><span class="solo">Solo por hoy</span><span class="cifra-sticker">$19.999</span></span>
     </div>
   </div>
 </section>
