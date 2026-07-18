@@ -158,16 +158,22 @@
   }
   .box-mock .sticker{
     position:absolute; left:-16px; bottom:8%;
-    width:118px; height:118px; border-radius:50%;
-    background:var(--verde); color:#fff;
-    border:3px dashed rgba(255,255,255,.75);
+    width:122px; height:122px; border-radius:50%;
+    background:#fff; color:var(--verde);
+    border:3px solid var(--verde);
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center;
     transform:rotate(-11deg);
-    box-shadow:0 14px 26px -8px rgba(0,0,0,.55);
+    box-shadow:0 14px 26px -8px rgba(0,0,0,.5);
   }
-  .box-mock .sticker .solo{ font-family:'IBM Plex Mono'; font-size:10px; letter-spacing:.04em; text-transform:uppercase; }
-  .box-mock .sticker .cifra-sticker{ font-family:'Caveat'; font-weight:700; font-size:26px; line-height:1.05; margin-top:2px; }
+  .box-mock .sticker .solo{
+    font-family:'Work Sans'; font-weight:700; font-size:11.5px; letter-spacing:.02em; text-transform:uppercase;
+    color:var(--tinta);
+  }
+  .box-mock .sticker .cifra-sticker{
+    font-family:'Work Sans'; font-weight:800; font-size:22px; line-height:1.1; margin-top:3px;
+    color:var(--verde);
+  }
 
   /* ---------- VIDEO DEMO ---------- */
   .video-demo{ background:var(--papel); padding:70px 0 84px; }
@@ -304,22 +310,32 @@
   }
 
   /* ---------- BONUS ---------- */
-  .bonus{ background:var(--papel); padding:70px 0; }
+  .bonus{ background:var(--papel); padding:80px 0 90px; }
+  .bonus .section-head{ margin:0 auto 30px; text-align:center; max-width:600px; }
   .bonus-box{
-    max-width:820px; margin:0 auto;
+    max-width:860px; margin:0 auto;
     background:linear-gradient(135deg,#FDF3D9,#FCE9A8);
-    border-radius:20px; padding:32px clamp(22px,5vw,44px);
-    display:flex; gap:28px; align-items:center; flex-wrap:wrap;
-    border:2px dashed var(--tinta);
+    border-radius:22px; padding:38px clamp(24px,5vw,50px);
+    display:flex; gap:30px; align-items:center; flex-wrap:wrap;
+    border:3px solid var(--verde);
+    box-shadow:0 24px 50px -20px rgba(78,159,114,.4), 0 0 0 6px rgba(78,159,114,.08);
+    position:relative;
   }
-  .bonus-box .cover{ flex:none; width:120px; }
-  .bonus-box .cover img{ width:100%; border-radius:6px; box-shadow:0 16px 30px -12px rgba(0,0,0,.4); }
-  .bonus-box h3{ font-size:21px; font-family:'Work Sans'; font-weight:800; }
-  .bonus-box p{ margin-top:8px; font-size:15px; line-height:1.55; color:var(--tinta-suave); max-width:44ch; }
+  .bonus-flag{
+    position:absolute; top:-16px; left:32px;
+    background:var(--verde); color:#fff;
+    font-family:'IBM Plex Mono'; font-weight:600; font-size:12px; letter-spacing:.04em;
+    padding:7px 16px; border-radius:999px;
+    box-shadow:0 8px 16px -6px rgba(0,0,0,.4);
+  }
+  .bonus-box .cover{ flex:none; width:160px; }
+  .bonus-box .cover img{ width:100%; border-radius:8px; box-shadow:0 18px 34px -12px rgba(0,0,0,.45); }
+  .bonus-box h3{ font-size:24px; font-family:'Work Sans'; font-weight:800; }
+  .bonus-box p{ margin-top:8px; font-size:15.5px; line-height:1.55; color:var(--tinta-suave); max-width:44ch; }
   .bonus-box .txt{ flex:1; min-width:220px; }
-  .bonus-precio{ display:flex; align-items:baseline; gap:10px; margin-top:14px; flex-wrap:wrap; }
-  .bonus-precio .antes{ font-family:'IBM Plex Mono'; font-size:16px; color:var(--tinta-suave); text-decoration:line-through; text-decoration-color:var(--verde); text-decoration-thickness:2px; }
-  .bonus-precio .ahora{ font-family:'Caveat'; font-weight:700; font-size:26px; color:var(--verde); }
+  .bonus-precio{ display:flex; align-items:baseline; gap:10px; margin-top:16px; flex-wrap:wrap; }
+  .bonus-precio .antes{ font-family:'IBM Plex Mono'; font-size:17px; color:var(--tinta-suave); text-decoration:line-through; text-decoration-color:var(--verde); text-decoration-thickness:2px; }
+  .bonus-precio .ahora{ font-family:'Caveat'; font-weight:700; font-size:30px; color:var(--verde); }
 
   /* ---------- PRICING ---------- */
   .precio{
@@ -344,6 +360,12 @@
   .precio .detalle{ margin-top:14px; color:var(--tiza-dim); font-size:15.5px; max-width:44ch; line-height:1.6; }
   .precio .cta-row{ margin-top:34px; }
   .precio .fine{ margin-top:16px; font-size:12.5px; color:var(--tiza-dim); font-family:'IBM Plex Mono'; }
+  .mp-sello{
+    margin-top:20px; display:inline-flex; align-items:center;
+    background:#fff; border-radius:10px; padding:8px 18px;
+    box-shadow:0 10px 24px -10px rgba(0,0,0,.4);
+  }
+  .mp-sello img{ height:30px; width:auto; }
 
   /* ---------- FAQ ---------- */
   .faq{ background:var(--papel); padding:90px 0 100px; }
@@ -372,8 +394,9 @@
     .hero .wrap{ grid-template-columns:1fr; }
     .box-mock{ order:-1; transform:rotate(0); padding:20px 18px 18px; max-width:280px; margin:0 auto; }
     .box-mock img{ transform:rotate(0); max-width:100%; max-height:300px; }
-    .box-mock .sticker{ width:88px; height:88px; left:-10px; }
-    .box-mock .sticker .cifra-sticker{ font-size:19px; }
+    .box-mock .sticker{ width:92px; height:92px; left:-10px; }
+    .box-mock .sticker .solo{ font-size:9px; }
+    .box-mock .sticker .cifra-sticker{ font-size:16px; }
     .pasos{ grid-template-columns:1fr; }
     .notas{ grid-template-columns:1fr 1fr; }
   }
@@ -392,7 +415,7 @@
     <div class="logo"><span class="dot"></span> Docentes Digitales<span style="color:var(--rojo)">.IA</span></div>
     <nav style="display:flex; gap:10px; align-items:center;">
       <a class="btn btn-ghost" href="#precio">Ver precio</a>
-      <a class="btn btn-primary" style="padding:10px 18px; font-size:14px; box-shadow:2px 2px 0 var(--tinta);" href="https://wa.me/348315524258?text=Hola!%20Quiero%20el%20Generador%20de%20secuencias%20did%C3%A1cticas%20%F0%9F%99%8C" target="_blank" rel="noopener">Lo quiero · $19.999</a>
+      <a class="btn btn-primary" style="padding:10px 18px; font-size:14px; box-shadow:2px 2px 0 var(--tinta);" href="https://mpago.la/2iefGoA" target="_blank" rel="noopener">Lo quiero · $14.999</a>
     </nav>
   </div>
 </header>
@@ -402,11 +425,11 @@
     <div class="reveal in">
       <span class="eyebrow">Generador de Secuencias Didácticas</span>
       <span class="ribbon" style="margin-bottom:16px;">Oferta de lanzamiento — precio válido por tiempo limitado</span>
-      <h1>Recuperá tu domingo. <mark>Tu planificación</mark>, lista en minutos.</h1>
-      <p class="sub">Elegís grado, área y tema — la IA te arma una secuencia completa, interdisciplinaria y alineada al Diseño Curricular. Vos ajustás lo que quieras y la llevás al aula.</p>
+      <h1>Dejá de regalarle <mark>tus domingos</mark> a la planificación.</h1>
+      <p class="sub">Elegís grado, área y tema — la IA te arma en minutos lo que hoy te saca una noche entera: una secuencia completa, interdisciplinaria y alineada al Diseño Curricular. Vos ajustás lo que quieras y la llevás al aula.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://wa.me/348315524258?text=Hola!%20Quiero%20el%20Generador%20de%20secuencias%20did%C3%A1cticas%20%F0%9F%99%8C" target="_blank" rel="noopener">
-          Quiero el Generador — $19.999 →
+        <a class="btn btn-primary" href="https://mpago.la/2iefGoA" target="_blank" rel="noopener">
+          Quiero el Generador — $14.999 →
         </a>
       </div>
       <p class="mono" style="font-size:13px;color:var(--tiza-dim); margin-top:10px;">Pago único · no es una suscripción</p>
@@ -414,12 +437,16 @@
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="var(--verde)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Pensado por y para docentes argentinos, de nivel primario.
       </div>
+      <div class="trust" style="margin-top:8px; color:var(--amarillo); font-weight:600;">
+        <span style="font-size:15px;">🎁</span>
+        + El Manual de IA para Docentes de regalo
+      </div>
     </div>
 
     <div class="box-mock reveal in">
       <img src="assets/asistente-planificacion-box.png" alt="Asistente de Planificación — Generador de Secuencias Didácticas" width="520" height="646" loading="eager" />
       <span class="badge-flot">✓ Listo en minutos</span>
-      <span class="sticker"><span class="solo">Solo por hoy</span><span class="cifra-sticker">$19.999</span></span>
+      <span class="sticker"><span class="solo">Solo por hoy</span><span class="cifra-sticker">$14.999</span></span>
     </div>
   </div>
 </section>
@@ -443,24 +470,24 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">¿Te suena familiar?</span>
-      <h2>El domingo a la noche, todavía <span class="chalk-h">planificando</span>.</h2>
+      <h2>Domingo 23 hs, mate frío, y la planificación <span class="chalk-h">todavía en blanco</span>.</h2>
     </div>
     <div class="problem-list reveal">
       <div class="problem-item">
         <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="none" stroke="var(--rojo)" stroke-width="1.6"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--rojo)" stroke-width="1.6" stroke-linecap="round"/></svg>
-        Buscar y adaptar actividades de mil sitios distintos, hasta armar algo medianamente coherente.
+        Seis pestañas abiertas, copiando y pegando de acá y de allá, hasta armar algo que ni vos sabés si tiene sentido.
       </div>
       <div class="problem-item">
         <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="none" stroke="var(--rojo)" stroke-width="1.6"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--rojo)" stroke-width="1.6" stroke-linecap="round"/></svg>
-        Terminar de planificar y quedarte con la duda: ¿esto está bien alineado al Diseño Curricular?
+        Esa duda clavada al terminar: ¿esto está bien alineado al Diseño Curricular, o lo estoy inventando?
       </div>
       <div class="problem-item">
         <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="none" stroke="var(--rojo)" stroke-width="1.6"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--rojo)" stroke-width="1.6" stroke-linecap="round"/></svg>
-        Lengua, Matemática y Ciencias, cada una por su lado, sin que se hablen entre sí.
+        Lengua, Matemática y Ciencias, cada una por su lado — ninguna se habla con la otra.
       </div>
       <div class="problem-item">
         <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="none" stroke="var(--rojo)" stroke-width="1.6"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--rojo)" stroke-width="1.6" stroke-linecap="round"/></svg>
-        Horas que le sacás a tu descanso, a tu familia o a vos misma.
+        Le robás horas a tu descanso, a tu familia, a vos misma — para algo que en dos semanas ni te acordás dónde guardaste.
       </div>
     </div>
   </div>
@@ -516,7 +543,7 @@
     <div class="versus">
       <div class="tarjeta antes reveal">
         <span class="tag mal">Como lo hacías antes</span>
-        <p class="tachado">Domingo 22 hs. Buscando actividades de vertebrados en seis pestañas distintas, sin saber si Lengua y Ciencias van a quedar conectadas...</p>
+        <p class="tachado">Domingo 23 hs, mate frío. Buscando actividades de vertebrados en seis pestañas distintas, sin saber si Lengua y Ciencias van a quedar conectadas...</p>
         <span class="garabato">¿esto alcanza para las tres áreas? 🤔</span>
       </div>
       <div class="tarjeta despues reveal">
@@ -530,7 +557,12 @@
 
 <section class="bonus">
   <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Bono exclusivo</span>
+      <h2>Y no vas <span class="chalk-h">sola/o</span>: sumamos un regalo</h2>
+    </div>
     <div class="bonus-box reveal">
+      <span class="bonus-flag">🎁 Bono de lanzamiento</span>
       <div class="cover">
         <img src="assets/manual-ia-docentes.jpeg" alt="El Manual de IA para Docentes" loading="lazy" />
       </div>
@@ -552,18 +584,21 @@
     <span class="kicker reveal">Hacelo tuyo hoy</span>
     <span class="ribbon precio-ribbon reveal">Oferta de lanzamiento — por tiempo limitado</span>
     <div class="nota-diez reveal">
-      <span class="cifra">$19.999</span>
+      <span class="cifra">$14.999</span>
       <span class="cap">PAGO ÚNICO</span>
     </div>
     <h2 class="reveal">Generador de Secuencias Didácticas + Manual de IA de regalo</h2>
-    <p class="detalle reveal">Pagás una sola vez, no es una suscripción. Escribinos por WhatsApp y coordinamos el acceso y la entrega del regalo al toque.</p>
+    <p class="detalle reveal">Pagás una sola vez con Mercado Pago, no es una suscripción. Apenas se acredita el pago, te escribimos por WhatsApp para mandarte el acceso y tu regalo.</p>
     <p class="urgencia reveal">⚠️ Este precio de lanzamiento sube una vez que termine esta etapa inicial.</p>
     <div class="cta-row reveal">
-      <a class="btn btn-primary" href="https://wa.me/348315524258?text=Hola!%20Quiero%20el%20Generador%20de%20secuencias%20did%C3%A1cticas%20%F0%9F%99%8C" target="_blank" rel="noopener">
-        Quiero mi acceso por WhatsApp →
+      <a class="btn btn-primary" href="https://mpago.la/2iefGoA" target="_blank" rel="noopener">
+        Pagar con Mercado Pago →
       </a>
     </div>
-    <p class="fine">Respondemos por WhatsApp — coordinamos el pago y te mandamos todo ahí mismo.</p>
+    <div class="mp-sello reveal">
+      <img src="assets/mercadopago-logo.jpg" alt="Mercado Pago — medios de pago" />
+    </div>
+    <p class="fine">Pago 100% seguro con Mercado Pago · tarjeta, cuotas o dinero en cuenta.</p>
   </div>
 </section>
 
@@ -588,7 +623,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">¿Cómo hago el pago?<span class="plus">+</span></button>
-        <div class="faq-a"><p>Escribinos por WhatsApp desde el botón de esta página y coordinamos el pago y la entrega juntas.</p></div>
+        <div class="faq-a"><p>Pagás con Mercado Pago desde el botón de esta página (tarjeta, cuotas o dinero en cuenta). Apenas se acredita, te escribimos por WhatsApp para mandarte el acceso y el regalo.</p></div>
       </div>
     </div>
   </div>
