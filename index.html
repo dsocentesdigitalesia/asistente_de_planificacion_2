@@ -53,7 +53,6 @@
 
   /* ---------- header ---------- */
   header{
-    position:sticky; top:0; z-index:40;
     background:rgba(251,248,239,.92);
     backdrop-filter:blur(6px);
     border-bottom:1px solid #E4DFCB;
@@ -64,6 +63,11 @@
   }
   .logo{ display:flex; align-items:center; gap:9px; font-family:'Work Sans'; font-weight:700; font-size:17px; }
   .logo .dot{ width:10px; height:10px; border-radius:50%; background:var(--rojo); }
+  .header-trust{
+    display:flex; align-items:center; gap:7px;
+    font-family:'IBM Plex Mono'; font-size:12.5px; font-weight:600;
+    color:var(--tinta-suave);
+  }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
     padding:12px 22px;
@@ -81,6 +85,28 @@
   .btn-primary:active{ transform:translate(0,0); box-shadow:1px 1px 0 var(--tinta); }
   .btn-ghost{ padding:9px 18px; font-size:14px; border-color:var(--tinta); background:transparent;}
   .btn-ghost:hover{ background:var(--tinta); color:var(--papel); }
+
+  /* ---------- floating CTA (bottom) ---------- */
+  .floating-cta{
+    position:fixed; left:0; right:0; bottom:0; z-index:50;
+    background:rgba(22,51,42,.97);
+    backdrop-filter:blur(6px);
+    padding:12px 20px;
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    box-shadow:0 -10px 30px -12px rgba(0,0,0,.5);
+    transform:translateY(110%);
+    transition:transform .35s ease;
+  }
+  .floating-cta.show{ transform:translateY(0); }
+  .floating-cta span{
+    color:var(--tiza); font-family:'IBM Plex Mono'; font-size:13px; display:none;
+  }
+  .floating-cta .btn-primary{
+    padding:11px 22px; font-size:14.5px; box-shadow:2px 2px 0 var(--tiza);
+  }
+  @media (min-width:560px){
+    .floating-cta span{ display:inline; }
+  }
 
   /* ---------- HERO (pizarrón) ---------- */
   .hero{
@@ -404,7 +430,8 @@
     .notas{ grid-template-columns:1fr; }
     .nota{ transform:none !important; }
     header .bar{ padding:12px 16px; }
-    .btn-ghost{ display:none; }
+    .header-trust{ font-size:10.5px; gap:5px; text-align:right; }
+    .header-trust svg{ flex:none; }
   }
 </style>
 </head>
@@ -413,10 +440,10 @@
 <header>
   <div class="bar wrap">
     <div class="logo"><span class="dot"></span> Docentes Digitales<span style="color:var(--rojo)">.IA</span></div>
-    <nav style="display:flex; gap:10px; align-items:center;">
-      <a class="btn btn-ghost" href="#precio">Ver precio</a>
-      <a class="btn btn-primary" style="padding:10px 18px; font-size:14px; box-shadow:2px 2px 0 var(--tinta);" href="https://mpago.la/2iefGoA" target="_blank" rel="noopener">Lo quiero · $14.999</a>
-    </nav>
+    <div class="header-trust">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3Z" stroke="var(--verde)" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="var(--verde)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Compra 100% segura · Mercado Pago
+    </div>
   </div>
 </header>
 
@@ -429,7 +456,7 @@
       <p class="sub">Elegís grado, área y tema — la IA te arma en minutos lo que hoy te saca una noche entera: una secuencia completa, interdisciplinaria y alineada al Diseño Curricular. Vos ajustás lo que quieras y la llevás al aula.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://mpago.la/2iefGoA" target="_blank" rel="noopener">
-          Quiero el Generador — $14.999 →
+          Quiero el Generador — $9.999 →
         </a>
       </div>
       <p class="mono" style="font-size:13px;color:var(--tiza-dim); margin-top:10px;">Pago único · no es una suscripción</p>
@@ -446,7 +473,7 @@
     <div class="box-mock reveal in">
       <img src="assets/asistente-planificacion-box.png" alt="Asistente de Planificación — Generador de Secuencias Didácticas" width="520" height="646" loading="eager" />
       <span class="badge-flot">✓ Listo en minutos</span>
-      <span class="sticker"><span class="solo">Solo por hoy</span><span class="cifra-sticker">$14.999</span></span>
+      <span class="sticker"><span class="solo">Solo por hoy</span><span class="cifra-sticker">$9.999</span></span>
     </div>
   </div>
 </section>
@@ -584,7 +611,7 @@
     <span class="kicker reveal">Hacelo tuyo hoy</span>
     <span class="ribbon precio-ribbon reveal">Oferta de lanzamiento — por tiempo limitado</span>
     <div class="nota-diez reveal">
-      <span class="cifra">$14.999</span>
+      <span class="cifra">$9.999</span>
       <span class="cap">PAGO ÚNICO</span>
     </div>
     <h2 class="reveal">Generador de Secuencias Didácticas + Manual de IA de regalo</h2>
@@ -636,6 +663,11 @@
   </div>
 </footer>
 
+<div class="floating-cta" id="floatingCta">
+  <span>🎁 + Manual de IA de regalo · $9.999</span>
+  <a class="btn btn-primary" href="https://mpago.la/2iefGoA" target="_blank" rel="noopener">Pagar con Mercado Pago →</a>
+</div>
+
 <script>
   // scroll reveal
   const items = document.querySelectorAll('.reveal');
@@ -660,6 +692,16 @@
       }
     });
   });
+
+  // floating CTA: aparece al pasar el 25% del scroll de la página
+  const floatingCta = document.getElementById('floatingCta');
+  function toggleFloatingCta(){
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    floatingCta.classList.toggle('show', pct >= 25);
+  }
+  window.addEventListener('scroll', toggleFloatingCta, { passive:true });
+  toggleFloatingCta();
 </script>
 
 </body>
